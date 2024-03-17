@@ -3,12 +3,15 @@ import UploadImage from "@/components/dashboard/upload-image";
 import { Button } from "@/components/ui/button";
 import { validateRequest } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = {};
-
+export const metadata: Metadata = {
+  title: "Dashboard Page",
+};
 async function DashBoardPage({}: Props) {
   const { user } = await validateRequest();
 

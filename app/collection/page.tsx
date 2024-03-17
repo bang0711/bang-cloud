@@ -2,12 +2,15 @@ import DeleteButton from "@/components/collection/delete-button";
 import { Button } from "@/components/ui/button";
 import { validateRequest } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = {};
-
+export const metadata: Metadata = {
+  title: "Collection Page",
+};
 async function CollectionPage({}: Props) {
   const { user } = await validateRequest();
   const images = await prisma.image.findMany({
